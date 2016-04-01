@@ -1,0 +1,13 @@
+ol.range-select-list { margin: 0; padding: 0; list-style: none; display: inline-block; font-family: Arial, Helvetica, san-serif; font-size: 11px; }
+
+ol.range-select-list li { position: relative; padding: 0.5em 10px; background: rgba(0, 0, 0, 0.1); color: #666666; cursor: default; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+ol.range-select-list li:hover { background: rgba(0, 0, 0, 0.16); }
+
+ol.range-select-list li.selected { background: #69b3ff; color: #ffffff; }
+ol.range-select-list.highlight-selected li.selected { background: #61a5eb; }
+
+ol.range-select-list li .handle { box-sizing: border-box; width: 100%; height: 50%; position: absolute; left: 0px; opacity: 0; }
+ol.range-select-list li .handle.start { top: 0px; border-top: 4px solid rgba(0, 0, 0, 0.5); }
+ol.range-select-list li .handle.end { bottom: 0px; border-bottom: 4px solid rgba(0, 0, 0, 0.5); }
+ol.range-select-list li .handle.auto:hover,
+ol.range-select-list li .handle.on { opacity: 1; cursor: ns-resize; }
