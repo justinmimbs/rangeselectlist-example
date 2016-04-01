@@ -17,16 +17,6 @@ function equalArrays(a, b) {
   return a.length === b.length && a.every((x, i) => x === b[i]);
 }
 
-function ignoreRepeatedCalls(f) {
-  let lastArgs;
-  return (...args) => {
-    if (!lastArgs || !equalArrays(lastArgs, args)) {
-      lastArgs = args;
-      f(...args);
-    }
-  };
-}
-
 // dragType = NEW|MOVE|RESIZE
 const NEW = 'NEW';
 const MOVE = 'MOVE';
@@ -73,7 +63,7 @@ class RangeSelectList extends React.Component {
 
     this.indexFromKey = this.indexFromKey.bind(this);
     this.handleDown = this.handleDown.bind(this);
-    this.handleEnter = ignoreRepeatedCalls(this.handleEnter.bind(this));
+    this.handleEnter = this.handleEnter.bind(this);
     this.handleUp = this.handleUp.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }

@@ -24,6 +24,15 @@ class RangeSelectListItem extends React.Component {
   }
 
   handleMouseOverItem(event) {
+    // ignore movements between li and label
+    const li = event.currentTarget;
+    const label = li.firstChild;
+    const entering = event.target;
+    const exiting = event.relatedTarget;
+    if (exiting === li && entering === label || exiting === label && entering === li) {
+      return;
+    }
+
     this.props.onEnter(this.props.item.key, this.props.isSelected, event.target.tagName === 'DIV');
   }
 
